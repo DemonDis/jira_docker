@@ -57,7 +57,6 @@ WHERE pe.property_key = 'jira.session.timeout';
 
 echo ""
 echo "Перезапуск Jira..."
-cd "/media/sdd/Новый_том/Linux/GIT/jira_docker"
 docker-compose restart jira
 
 echo "=== Готово! ==="

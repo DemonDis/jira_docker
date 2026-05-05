@@ -8,7 +8,6 @@
 
 ### 1. Запуск контейнеров
 ```bash
-cd /media/sdd/Новый_том/Linux/GIT/jira_docker
 docker-compose up -d
 ```
 

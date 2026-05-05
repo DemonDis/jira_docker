@@ -2,8 +2,6 @@ version: '3'
 services:
   jira:
     build: .
-    ports:
-      - "8080:8080"
     volumes:
       - jira-data:/var/atlassian/jira
       - jira-logs:/opt/atlassian/jira/logs
@@ -36,6 +34,14 @@ services:
       - db
     volumes:
       - pgadmin-data:/var/lib/pgadmin
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - jira
 
 volumes:
   jira-data:

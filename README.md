@@ -50,7 +50,7 @@ docker-compose up -d
 Отредактируйте переменные в начале скрипта:
 ```bash
 ADMIN_USER="sdd"      # ваш логин администратора
-ADMIN_PASS="1qazXSW@" # ваш пароль администратора
+ADMIN_PASS="123" # ваш пароль администратора
 ```
 
 Запуск:
@@ -61,7 +61,7 @@ chmod +x create_users.sh
 
 Будут созданы:
 - `superadmin` / `superadmin123` (администратор)
-- `alice`, `bob`, `charlie`, `diana`, `eve` (обычные пользователи)
+- `lsa` (обычные пользователи)
 
 ## Файлы
 

@@ -1,14 +1,89 @@
 # Запуск Atlassian Jira 8 с помощью Docker
 
-## Требования
-- Docker и Docker Compose
-- PHP (для генерации лицензионного ключа)
+## Требуемые версии программ
+| Программа | Минимальная версия | Примечание |
+|-----------|-------------------|------------|
+| Docker | >= 20.10 | Основной инструмент контейнеризации |
+| Docker Compose | >= 1.29 | Или docker compose plugin >= 2.0 |
+| PHP | >= 7.4 | Для генерации лицензионного ключа (atlassian-keygen.php) |
+
+## Установка и проверка необходимых программ
+
+### Docker
+Установка на Ubuntu/Debian:
+```bash
+# Удаление старых версий
+sudo apt remove docker docker-engine docker.io containerd runc
+
+# Установка зависимостей
+sudo apt update
+sudo apt install ca-certificates curl gnupg lsb-release
+
+# Добавление официального GPG ключа Docker
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# Добавление репозитория Docker
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# Установка Docker Engine
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
+
+Проверка версии:
+```bash
+docker --version
+# Ожидаемый вывод: Docker version 20.10.x или новее
+```
+
+### Docker Compose
+Если используется плагин Docker Compose v2 (рекомендуется, устанавливается вместе с Docker Engine):
+```bash
+docker compose version
+# Ожидаемый вывод: Docker Compose version v2.0.0 или новее
+```
+
+Для старой версии Docker Compose v1:
+```bash
+sudo apt install docker-compose
+docker-compose --version
+# Ожидаемый вывод: docker-compose version 1.29.0 или новее
+```
+
+### PHP
+Установка:
+```bash
+sudo apt update
+sudo apt install php-cli
+```
+
+Проверка версии:
+```bash
+php --version
+# Ожидаемый вывод: PHP 7.4.x или новее
+```
+
+### Python
+Установка:
+```bash
+sudo apt update
+sudo apt install python3
+```
+
+Проверка версии:
+```bash
+python3 --version
+# Ожидаемый вывод: Python 3.6.x или новее
+```
 
 ## Быстрый старт
 
 ### 1. Запуск контейнеров
 ```bash
 docker-compose up -d
+# или
+docker compose up -d
 ```
 
 Запустятся три сервиса:

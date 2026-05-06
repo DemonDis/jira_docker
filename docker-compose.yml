@@ -12,7 +12,7 @@ services:
       - ATL_JDBC_PASSWORD=jellyfish
       - ATL_DB_DRIVER=org.postgresql.Driver
       - ATL_DB_TYPE=postgres72
-      - ATL_PROXY_NAME=localhost
+      - ATL_PROXY_NAME=192.168.xx.xx
       - ATL_PROXY_PORT=443
       - ATL_TOMCAT_SCHEME=https
       - ATL_TOMCAT_SECURE=true

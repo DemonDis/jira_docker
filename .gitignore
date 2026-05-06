@@ -1,2 +1,3 @@
 .ilnsk
-nginx/ssl
+*.crt
+*.key

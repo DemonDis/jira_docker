@@ -1,7 +1,7 @@
 version: '3'
 services:
   jira:
-    build: .
+    build: ./jira
     volumes:
       - jira-data:/var/atlassian/jira
       - jira-logs:/opt/atlassian/jira/logs

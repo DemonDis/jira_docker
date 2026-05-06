@@ -1,6 +1,8 @@
 services:
   jira:
     build: ./jira
+    ports:
+      - "8080:8080"
     volumes:
       - jira-data:/var/atlassian/jira
       - jira-logs:/opt/atlassian/jira/logs
@@ -10,6 +12,10 @@ services:
       - ATL_JDBC_PASSWORD=jellyfish
       - ATL_DB_DRIVER=org.postgresql.Driver
       - ATL_DB_TYPE=postgres72
+      - ATL_PROXY_NAME=localhost
+      - ATL_PROXY_PORT=443
+      - ATL_TOMCAT_SCHEME=https
+      - ATL_TOMCAT_SECURE=true
     depends_on:
       - db
 

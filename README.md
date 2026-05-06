@@ -96,7 +96,7 @@ docker compose up -d
 1. Откройте http://localhost:8080
 2. Пройдите первоначальную настройку
 3. Скопируйте **Server ID** (на экране лицензии)
-4. Обновите Server ID в файле `license_key_jira.txt` в папке `keygen`
+4. Обновите Server ID в файле `license_key_jira.txt` в папке `./keygen`
 5. Сгенерируйте ключ:
    ```bash
    php atlassian-keygen.php -e license_key_jira.txt
